@@ -10,7 +10,7 @@ namespace Admin.Models
         public int AuctionId { get; set; }
         //-------------------------------------------------------
         public int BuyerId { get; set; }
-        [Required]
+
         public required string HighestBids { get; set; }
         [Required]
         [StringLength(100)]
@@ -23,4 +23,5 @@ namespace Admin.Models
         [Required]
         public string AuctionStatus { get; set; }
     }
+
 }

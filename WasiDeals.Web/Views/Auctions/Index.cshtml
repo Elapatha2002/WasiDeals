@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Admin.Models.Auctions>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="margin-top: 20px;">
+    <p><a asp-action="Create" class="btn btn-primary btn-sm"><i class="fas fa-plus" style="margin-right: 8px"></i>Schedule New Auction</a></p>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-size: 22px;">Auctions List</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>                      
+                        <th>@Html.DisplayNameFor(model => model.AuctionName)</th>
+                        <th>@Html.DisplayNameFor(model => model.AuctionStartDate)</th>
+                        <th>@Html.DisplayNameFor(model => model.AuctionStartTime)</th>
+                        <th>@Html.DisplayNameFor(model => model.TimeBtwItemChange)</th>
+                        <th>@Html.DisplayNameFor(model => model.AuctionItems)</th>
+                        <th>@Html.DisplayNameFor(model => model.HighestBids)</th>
+                        <th>@Html.DisplayNameFor(model => model.BuyerId)</th>
+                        <th>@Html.DisplayNameFor(model => model.AuctionStatus)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.AuctionName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AuctionStartDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AuctionStartTime)</td>
+                            <td>@Html.DisplayFor(modelItem => item.TimeBtwItemChange)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AuctionItems)</td>
+                            <td>@Html.DisplayFor(modelItem => item.HighestBids)</td>
+                            <td>@Html.DisplayFor(modelItem => item.BuyerId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AuctionStatus)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.AuctionId" class="btn btn-primary btn-sm"><i class="fas fa-pen" style="margin-right: 8px;margin-left: 8px"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.AuctionId" class="btn btn-warning btn-sm"><i class="fas fa-eye" style="margin-right: 8px;margin-left: 8px"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.AuctionId" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" style="margin-right: 8px;margin-left: 8px"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

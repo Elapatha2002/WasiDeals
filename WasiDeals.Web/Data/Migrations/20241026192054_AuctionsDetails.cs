@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Admin.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AuctionsDetails : Migration
+    public partial class AuctionsDetails : Migrations
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,8 +17,8 @@ namespace Admin.Data.Migrations
                 {
                     AuctionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BuyerId = table.Column<int>(type: "int", nullable: false),
-                    HighestBids = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BuyerId = table.Column<int>(type: "int", nullable: true),
+                    HighestBids = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AuctionName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     AuctionStartDate = table.Column<DateOnly>(type: "date", nullable: false),
                     AuctionStartTime = table.Column<TimeSpan>(type: "time", nullable: false),
