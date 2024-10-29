@@ -1,0 +1,66 @@
+﻿@model Admin.Models.Sellers
+
+@{
+    ViewData["Title"] = "Create Seller";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;"> Create New Seller</h3>
+        </div>
+        <div class="card-body">
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="SellerName" class="control-label"></label>
+                    <input asp-for="SellerName" class="form-control" />
+                    <span asp-validation-for="SellerName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SellerEmail" class="control-label"></label>
+                    <input asp-for="SellerEmail" class="form-control" type="email" />
+                    <span asp-validation-for="SellerEmail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SellerPhoneNumber" class="control-label"></label>
+                    <input asp-for="SellerPhoneNumber" class="form-control" type="tel" />
+                    <span asp-validation-for="SellerPhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SellerAddress" class="control-label"></label>
+                    <input asp-for="SellerAddress" class="form-control" />
+                    <span asp-validation-for="SellerAddress" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ModifiedById" class="control-label"></label>
+                    <input asp-for="ModifiedById" class="form-control" />
+                    <span asp-validation-for="ModifiedById" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ModifiedOn" class="control-label"></label>
+                    <input asp-for="ModifiedOn" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="ModifiedOn" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

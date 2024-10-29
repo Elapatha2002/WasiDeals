@@ -1,0 +1,80 @@
+﻿@model Admin.Models.Items
+
+@{
+    ViewData["Title"] = "Edit Item";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">Edit Item</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ItemId" />
+
+                <div class="form-group">
+                    <label asp-for="SellerId" class="control-label"></label>
+                    <input asp-for="SellerId" class="form-control" />
+                    <span asp-validation-for="SellerId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SellerName" class="control-label"></label>
+                    <input asp-for="SellerName" class="form-control" />
+                    <span asp-validation-for="SellerName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ItemName" class="control-label"></label>
+                    <input asp-for="ItemName" class="form-control" />
+                    <span asp-validation-for="ItemName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ItemDescription" class="control-label"></label>
+                    <input asp-for="ItemDescription" class="form-control" />
+                    <span asp-validation-for="ItemDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MinimumBid" class="control-label"></label>
+                    <input asp-for="MinimumBid" class="form-control" />
+                    <span asp-validation-for="MinimumBid" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Picture" class="control-label">Upload Picture</label>
+                    <input type="file,text" asp-for="Picture" class="form-control" accept="image/*" />
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                </div>
+
+                @if (!string.IsNullOrEmpty(Model.Picture))
+                {
+                    <div>
+                        <h5>Current Image:</h5>
+                        <img src="@Url.Content(Model.Picture)" alt="Item Picture" style="max-width: 200px; max-height: 200px;" />
+                    </div>
+                }
+
+                <div class="form-group">
+                    <label asp-for="Qty" class="control-label"></label>
+                    <input asp-for="Qty" class="form-control" />
+                    <span asp-validation-for="Qty" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,84 @@
+﻿@model Admin.Models.Invoice
+
+@{
+    ViewData["Title"] = "Create Invoice";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">Create New Invoice</h3>
+        </div>
+        <div class="card-body">
+
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="BuyerName" class="control-label"></label>
+                    <input asp-for="BuyerName" class="form-control" />
+                    <span asp-validation-for="BuyerName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BuyerId" class="control-label"></label>
+                    <input asp-for="BuyerId" class="form-control" />
+                    <span asp-validation-for="BuyerId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SellerName" class="control-label"></label>
+                    <input asp-for="SellerName" class="form-control" />
+                    <span asp-validation-for="SellerName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SellerId" class="control-label"></label>
+                    <input asp-for="SellerId" class="form-control" />
+                    <span asp-validation-for="SellerId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ItemName" class="control-label"></label>
+                    <input asp-for="ItemName" class="form-control" />
+                    <span asp-validation-for="ItemName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Qty" class="control-label"></label>
+                    <input asp-for="Qty" class="form-control" type="number" min="1" />
+                    <span asp-validation-for="Qty" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UnitPrice" class="control-label"></label>
+                    <input asp-for="UnitPrice" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TotalPrice" class="control-label"></label>
+                    <input asp-for="TotalPrice" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="TotalPrice" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label"></label>
+                    <input asp-for="Date" class="form-control" type="date" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
