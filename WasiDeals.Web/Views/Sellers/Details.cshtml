@@ -1,0 +1,61 @@
+﻿@model Admin.Models.Sellers
+
+@{
+    ViewData["Title"] = "Seller Details";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">Seller Details</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.SellerName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.SellerName)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.SellerEmail)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.SellerEmail)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.SellerPhoneNumber)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.SellerPhoneNumber)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.SellerAddress)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.SellerAddress)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.ModifiedById)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.ModifiedById)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.ModifiedOn)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.ModifiedOn)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.SellerId">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a class="btn btn-secondary" asp-action="Index">
+                <i class="fas fa-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>

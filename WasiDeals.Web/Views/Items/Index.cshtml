@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Admin.Models.Items>
+@{
+    ViewData["Title"] = "Index";
+}
+<div style="margin-top: 20px;">
+    <p><a asp-action="Create" class="btn btn-primary btn-sm"><i class="fas fa-plus" style="margin-right: 8px"></i>Add New Item</a></p>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-size: 22px;">Items List</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.SellerId)</th>
+                        <th>@Html.DisplayNameFor(model => model.SellerName)</th>
+                        <th>@Html.DisplayNameFor(model => model.ItemName)</th>
+                        <th>@Html.DisplayNameFor(model => model.ItemDescription)</th>
+                        <th>@Html.DisplayNameFor(model => model.MinimumBid)</th>
+                        <th>@Html.DisplayNameFor(model => model.Picture)</th>
+                        <th>@Html.DisplayNameFor(model => model.Qty)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.SellerId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SellerName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ItemName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ItemDescription)</td>
+                            <td>@Html.DisplayFor(modelItem => item.MinimumBid)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Picture)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Qty)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ItemId" class="btn btn-primary btn-sm"><i class="fas fa-pen" style="margin-right: 8px;margin-left: 8px"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.ItemId" class="btn btn-warning btn-sm"><i class="fas fa-eye" style="margin-right: 8px;margin-left: 8px"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.ItemId" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" style="margin-right: 8px;margin-left: 8px"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

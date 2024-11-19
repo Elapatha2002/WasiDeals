@@ -1,0 +1,68 @@
+﻿@model Admin.Models.Buyers
+
+@{
+    ViewData["Title"] = "Delete Buyer";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">Delete Buyer Confirmation</h3>
+        </div>
+        <div class="card-body">
+            <h4>Are you sure you want to delete this buyer?</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.BuyerName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.BuyerName)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.BuyerEmail)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.BuyerEmail)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.BuyerPhoneNumber)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.BuyerPhoneNumber)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.BuyerAddress)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.BuyerAddress)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.ModifiedById)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.ModifiedById)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.ModifiedOn)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.ModifiedOn)
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="BuyerId" />
+                <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </button>
+
+
+                <a class="btn btn-secondary" asp-action="Index">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

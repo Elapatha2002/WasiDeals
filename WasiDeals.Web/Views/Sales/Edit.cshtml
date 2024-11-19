@@ -1,0 +1,65 @@
+﻿@model Admin.Models.Sales
+
+@{
+    ViewData["Title"] = "Edit Sales";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">  Edit Sales</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="SalesId" />
+
+                <div class="form-group">
+                    <label asp-for="SellerId" class="control-label"></label>
+                    <input asp-for="SellerId" class="form-control" />
+                    <span asp-validation-for="SellerId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BuyerId" class="control-label"></label>
+                    <input asp-for="BuyerId" class="form-control" />
+                    <span asp-validation-for="BuyerId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ItemId" class="control-label"></label>
+                    <input asp-for="ItemId" class="form-control" />
+                    <span asp-validation-for="ItemId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Qty" class="control-label"></label>
+                    <input asp-for="Qty" class="form-control" type="number" min="1" />
+                    <span asp-validation-for="Qty" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PaymentStatus" class="control-label"></label>
+                    <select asp-for="PaymentStatus" class="form-control">
+                        <option value="">Select Status</option>
+
+                        <option value="Pending">Pending</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

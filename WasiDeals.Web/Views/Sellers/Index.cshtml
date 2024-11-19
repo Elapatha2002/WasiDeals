@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Admin.Models.Sellers>
+@{
+    ViewData["Title"] = "Index";
+}
+<div style="margin-top: 20px;">
+    <p><a asp-action="Create" class="btn btn-primary btn-sm"><i class="fas fa-plus" style="margin-right: 8px"></i>Add New Seller</a></p>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-size: 22px;">Sellers List</h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.SellerName)</th>
+                        <th>@Html.DisplayNameFor(model => model.SellerEmail)</th>
+                        <th>@Html.DisplayNameFor(model => model.SellerPhoneNumber)</th>
+                        <th>@Html.DisplayNameFor(model => model.SellerAddress)</th>
+                        <th>@Html.DisplayNameFor(model => model.ModifiedById)</th>
+                        <th>@Html.DisplayNameFor(model => model.ModifiedOn)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.SellerName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SellerEmail)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SellerPhoneNumber)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SellerAddress)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ModifiedById)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ModifiedOn)</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.SellerId" class="btn btn-primary btn-sm"><i class="fas fa-pen" style="margin-right: 8px;margin-left: 8px"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.SellerId" class="btn btn-warning btn-sm"><i class="fas fa-eye" style="margin-right: 8px;margin-left: 8px"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.SellerId" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt" style="margin-right: 8px;margin-left: 8px"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

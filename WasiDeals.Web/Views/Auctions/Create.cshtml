@@ -1,0 +1,103 @@
+﻿
+@model Admin.Models.viewmodel.AuctionCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Auction";
+    //var availableItems = ViewBag.AvailableItems as List<Admin.Models.Items>;
+
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">Create New Auction</h3>
+        </div>
+        <div class="card-body">
+            <h4>Auctions</h4>
+            <hr />
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                  <div asp-validation-summary="All" class="text-danger"></div>
+
+
+                <div class="form-group">
+                    <label asp-for="AuctionName" class="control-label"></label>
+                    <input asp-for="AuctionName" class="form-control" />
+                    <span asp-validation-for="AuctionName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AuctionStartDate" class="control-label"></label>
+                    <input asp-for="AuctionStartDate" class="form-control" type="date" />
+                    <span asp-validation-for="AuctionStartDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="AuctionStartTime" class="control-label"></label>
+                    <input asp-for="AuctionStartTime" class="form-control" type="time" />
+                    <span asp-validation-for="AuctionStartTime" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TimeBtwItemChange" class="control-label"></label>
+                    <input asp-for="TimeBtwItemChange" class="form-control"/>
+                    <span asp-validation-for="TimeBtwItemChange" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Available Items</label>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Select</th>
+                                <th>Image</th>
+                                <th>Item Name</th>
+                                <th>Description</th>
+                                <th>Minimum Bid</th>
+                                <th>Seller</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.AvailableItems)
+                            {
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="SelectedItemIds" value="@item.ItemId" />
+                                    </td>
+                                    <td>@item.Picture</td>
+                                    <td>@item.ItemName</td>
+                                    <td>@item.ItemDescription</td>
+                                    <td>@item.MinimumBid</td>
+                                    <td>@item.SellerName</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="AuctionStatus" class="control-label"></label>
+                    <select asp-for="AuctionStatus" class="form-control">
+                        <option value="">Select Status</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <span asp-validation-for="AuctionStatus" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

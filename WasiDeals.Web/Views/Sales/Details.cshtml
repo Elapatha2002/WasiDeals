@@ -1,0 +1,29 @@
+﻿@model Admin.Models.Sales
+@{
+    ViewData["Title"] = "Sales Details";
+}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header text-center">
+            <h3 class="card-title" style="font-family: 'Source Sans Pro', sans-serif;">Sales Details</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.SellerId)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.SellerId)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.BuyerId)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.BuyerId)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ItemId)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.ItemId)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Qty)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Qty)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.PaymentStatus)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PaymentStatus)</dd>
+            </dl>
+        </div>
+        <div class="card-footer text-center">
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.SalesId"><i class="fas fa-edit"></i> Edit</a>
+            <a class="btn btn-secondary" asp-action="Index"><i class="fas fa-arrow-left"></i> Back to List</a>
+        </div>
+    </div>
+</div>
